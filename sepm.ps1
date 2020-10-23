@@ -24,7 +24,7 @@
     $auth = $cred | ConvertTo-Json
 
     #Authentication
-    $authrequest = Invoke-RestMethod -Uri https://10.12.7.224:8446/sepm/api/v1/identity/authenticate -Method Post -Body $auth -ContentType 'application/json'
+    $authrequest = Invoke-RestMethod -Uri https://localhost:8446/sepm/api/v1/identity/authenticate -Method Post -Body $auth -ContentType 'application/json'
 
     #Access token from SEPM Authentication
     $access_token = $authrequest.token
@@ -33,7 +33,7 @@
     $header =@{Authorization='Bearer '+$access_token}
 
     # API: GET - Computers list hardware key
-    $result = Invoke-RestMethod -Uri https://10.12.7.224:8446/sepm/api/v1/groups/$groupid/computers -Headers $header
+    $result = Invoke-RestMethod -Uri https://localhost:8446/sepm/api/v1/groups/$groupid/computers -Headers $header
     $result.content | select hardwareKey
 }
 
@@ -63,7 +63,7 @@ function sepm-moveserver
     $auth = $cred | ConvertTo-Json
 
     #Authentication
-    $authrequest = Invoke-RestMethod -Uri https://10.12.7.224:8446/sepm/api/v1/identity/authenticate -Method Post -Body $auth -ContentType 'application/json'
+    $authrequest = Invoke-RestMethod -Uri https://localhost:8446/sepm/api/v1/identity/authenticate -Method Post -Body $auth -ContentType 'application/json'
 
     #Access token from SEPM Authentication
     $access_token = $authrequest.token
@@ -72,7 +72,7 @@ function sepm-moveserver
     $header =@{Authorization='Bearer '+$access_token}
 
     # API: PATCH - Move computers to another group
-    Invoke-RestMethod -Uri https://10.12.7.224:8446/sepm/api/v1/computers -Method Patch -InFile $jsonpath -ContentType 'application/json' -Headers $header
+    Invoke-RestMethod -Uri https://localhost:8446/sepm/api/v1/computers -Method Patch -InFile $jsonpath -ContentType 'application/json' -Headers $header
     
     ###########################################################################
     # Example JSON file to move clients to specified group:
@@ -87,20 +87,8 @@ function sepm-moveserver
     #]
     ###########################################################################
     #############################
-    # List of SEPM IM Group IDs #
+    # List of SEPM Group IDs #
     #############################
-    # My Company - B30492600A0C07E04ED18E5AF0726506
-    # My Company \ AWS-SF Group - 2B91BC100A0C07E04FB6A059A2B7E2B3
-    # My Company \ Cleanroom - 7489B6AC0A0C07E03715968D0BE52C8E
-    # My Company \ Default Group - 8EBE318E0A0C07E073E2EEE46636DB00
-    # My Company \ Esport Group - 9C94BF300A0C07E0290DD7FFCB470190
-    # My Company \ Ghost Buster Group - 283099F40A0C07E0314D05C02CBE29EF
-    # My Comapny \ Hyper-V Host Group - 989FFEC20A0C07E00C71A22D37E99F3A
-    # My Company \ IM_Default-Group - 2B3FE4510A0C07E00A7221F7D8E5C82E
-    # My Company \ IMONE Group - EF4B3F530A0C07E041A83A38D6F9203E
-    # My Company \ Narra Group - 731677B40A0C07E02D793EB64717ABF9
-    # My Company \ OCT Group - F3EC8E870A0C07E023469057E368BFA9
-    # My Company \ Sunflower Group - DF575E690A0C07E0228F4E3EC8570A00
-    # My Company \ Yabo Group - BD88F7BB0A0C07E0497FB0E93D64192E
+    # List your SEPM Group IDs first
 }
 
