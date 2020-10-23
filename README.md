@@ -12,7 +12,7 @@ logout_user.ps1 - logout windows user session
 
 manageengineagent.ps1 - installing manage engine agents in linux
 
-sepm.ps1 - get symantec harware key and move clients to specific group
+sepm.ps1 - get symantec manager harware key and move clients to specific group
 
 setdns.ps1 - set dns to ad computers
 
