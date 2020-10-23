@@ -1,4 +1,4 @@
-function ForLunfa
+function DeployVM
 {
 	[CmdletBinding()]
 	Param
@@ -22,7 +22,7 @@ function ForLunfa
     Write-Host "## Example --"
     Write-Host "## Start Server Number: 80"
     Write-Host "## End Server Number: 85"
-    Write-Host "## IPM-TW-SERVER80, IPM-TW-SERVER81, IPM-TW-SERVER82... IPM-TW-SERVER85"
+    Write-Host "## TEST-SERVER80, TEST-SERVER81, TEST-SERVER82... TEST-SERVER85"
     $start = Read-Host -Prompt "Start Server Number"
     $end = Read-Host -Prompt "End Server Number"
     $convertarray=($start..$end).ForEach({ '{0:D2}' -f $_ }) -join ','
