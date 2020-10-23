@@ -16,7 +16,7 @@ Foreach($COMPUTER in Get-Content $computers)
         {
         
         ## DNS IP addresses
-        $DNSServers = "10.12.7.233","10.12.7.212","10.12.7.211" ## the new DNS entries in order - Primary DNS, Secondary DNS, Other DNS
+        $DNSServers = "8.8.8.8","8.8.4.4","127.0.0.1" ## the new DNS entries in order - Primary DNS, Secondary DNS, Other DNS
         
         ## Set DNS IP addresses *WARNING!! This is replace, not add!! If replace, need to put ALL DNS IP*
         $NIC.SetDNSServerSearchOrder($DNSServers) | Out-Null
