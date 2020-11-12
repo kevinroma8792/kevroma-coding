@@ -17,3 +17,5 @@ sepm.ps1 - get symantec manager harware key and move clients to specific group
 setdns.ps1 - set dns to ad computers
 
 ultradns.ps1 - set and replace a and cname records in ultradns
+
+mini-etl.ps1 - my mini etl project using github commit logs and loading to sql database
